@@ -9,13 +9,13 @@ import matplotlib.pyplot as plt
 
 #segment using otsu
  # convert the image to grayscale
-gray_image = skimage.color.rgb2gray(img)
+gray_image = skimage.color.rgb2gray(image)
 # blur the image to denoise
 blurred_image = skimage.filters.gaussian(gray_image, sigma=1.0)
 # perform automatic thresholding
 t = skimage.filters.threshold_otsu(blurred_image)
 binary_mask = blurred_image > t
-selection = img.copy()
+selection = image.copy()
 selection[~binary_mask] = 0
 
 # vars
